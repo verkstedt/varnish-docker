@@ -1,4 +1,4 @@
-FROM        ubuntu:14.04.2
+FROM        ubuntu:16.04
 MAINTAINER  Love Nyberg "love.nyberg@lovemusic.se"
 ENV REFRESHED_AT 2014-10-18
 
