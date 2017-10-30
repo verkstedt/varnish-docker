@@ -11,12 +11,17 @@ RUN apt-get update -qq && \
 # Make our custom VCLs available on the container
 ADD default.vcl /etc/varnish/default.vcl
 
-ENV VARNISH_BACKEND_PORT 80
-ENV VARNISH_BACKEND_IP 172.17.42.1
-ENV VARNISH_PORT 80
+ARG VARNISH_BACKEND_PORT
+ENV VARNISH_BACKEND_PORT $VARNISH_BACKEND_PORT
+
+ARG VARNISH_BACKEND_IP
+ENV VARNISH_BACKEND_IP $VARNISH_BACKEND_IP
+
+ARG VARNISH_PORT
+ENV VARNISH_PORT $VARNISH_PORT
 
 # Expose port 80
-EXPOSE 80
+EXPOSE 8080
 
 # Expose volumes to be able to use data containers
 VOLUME ["/var/lib/varnish", "/etc/varnish"]

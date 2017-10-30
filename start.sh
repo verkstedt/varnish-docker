@@ -10,4 +10,6 @@ done
 
 # Start varnish and log
 varnishd -f /etc/varnish/default.vcl -s malloc,100M -a 0.0.0.0:${VARNISH_PORT}
+echo "Starting varnish at port ${VARNISH_PORT}"
+echo "Backend: ${VARNISH_BACKEND_IP}:${VARNISH_BACKEND_PORT}"
 varnishlog
